@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { db } from "./firebase";
-import { ref, push } from "firebase/database";
+import { ref, push, onValue  } from "firebase/database";
+
 
 
 function App() {const
@@ -62,6 +63,16 @@ if (!/^[6-9]\d{9}$/.test(formData.phone)) {
   Facial: 1500,
   "Bridal Makeup": 10000,
 };
+const [prices, setPrices] = useState({});
+useEffect(() => {
+  const servicesRef = ref(db, "services");
+
+  onValue(servicesRef, (snapshot) => {
+    if (snapshot.exists()) {
+      setPrices(snapshot.val());
+    }
+  });
+}, []);
 
 await push(ref(db, "appointments"), {
   name: formData.name,
@@ -490,21 +501,11 @@ return(
       }
       style={inputStyle}
     >
-      <option value="Haircut">
-  Haircut - ₹500
-</option>
-
-<option value="Hair Coloring">
-  Hair Coloring - ₹2000
-</option>
-
-<option value="Facial">
-  Facial - ₹1500
-</option>
-
-<option value="Bridal Makeup">
-  Bridal Makeup - ₹10000
-</option>
+      {Object.entries(prices).map(([service, price]) => (
+  <option key={service} value={service}>
+    {service} - ₹{price}
+  </option>
+))}
     </select>
     
 
