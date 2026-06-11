@@ -11,6 +11,7 @@ function Admin() {
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [search, setSearch] = useState("");
+  const [prices, setPrices] = useState({});
   const filteredAppointments = appointments.filter((item) =>
   item.name?.toLowerCase().includes(search.toLowerCase())
 );
@@ -19,6 +20,15 @@ function Admin() {
     completed: true,
   });
 };
+useEffect(() => {
+  const servicesRef = ref(db, "services");
+
+  onValue(servicesRef, (snapshot) => {
+    if (snapshot.exists()) {
+      setPrices(snapshot.val());
+    }
+  });
+}, []);
 
  
 
@@ -232,6 +242,7 @@ useEffect(() => {
   >
     📊 Dashboard
   </div>
+  
 
   <div
     style={{
@@ -394,6 +405,57 @@ useEffect(() => {
   </div>
 
       </div>
+      <h2
+  style={{
+    color: "#D4AF37",
+    marginTop: "30px",
+    marginBottom: "15px",
+  }}
+>
+  Service Pricing
+</h2>
+
+<div
+  style={{
+    background: "#111",
+    padding: "20px",
+    borderRadius: "12px",
+    marginBottom: "20px",
+  }}
+>
+  {Object.entries(prices).map(([service, price]) => (
+    <div
+      key={service}
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: "10px",
+      }}
+    >
+      <span>{service}</span>
+
+      <input
+        type="number"
+        value={price}
+        onChange={(e) =>
+          update(
+            ref(db, `services/${service}`),
+            Number(e.target.value)
+          )
+        }
+        style={{
+          width: "120px",
+          padding: "8px",
+          background: "#1b1b1b",
+          color: "white",
+          border: "1px solid #333",
+          borderRadius: "8px",
+        }}
+      />
+    </div>
+  ))}
+</div>
 
       {/* Search */}
       <input
