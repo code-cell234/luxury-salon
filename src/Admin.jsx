@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { db } from "./firebase";
-import { ref, onValue, remove, update } from "firebase/database";
+import { ref, onValue, remove, update, set} from "firebase/database";
 import { FaWhatsapp } from "react-icons/fa";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
@@ -440,11 +440,11 @@ useEffect(() => {
         type="number"
         value={price}
         onChange={(e) =>
-          update(
-            ref(db, `services/${service}`),
-            Number(e.target.value)
-          )
-        }
+  set(
+    ref(db, `services/${service}`),
+    Number(e.target.value)
+  )
+}
         style={{
           width: "120px",
           padding: "8px",
