@@ -5,6 +5,7 @@ import { ref, onValue, remove, update } from "firebase/database";
 import { FaWhatsapp } from "react-icons/fa";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
+import { set } from "firebase/database";
 function Admin() {
   
   const [appointments, setAppointments] = useState([]);
