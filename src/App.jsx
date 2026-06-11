@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { db } from "./firebase";
 import { ref, push, onValue  } from "firebase/database";
