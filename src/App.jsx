@@ -11,7 +11,19 @@ function App() {const
   phone: "",
   service: "Haircut",
   date: "",
-});const cardStyle = {
+});
+const [prices, setPrices] = useState({});
+
+useEffect(() => {
+  const servicesRef = ref(db, "services");
+
+  onValue(servicesRef, (snapshot) => {
+    if (snapshot.exists()) {
+      setPrices(snapshot.val());
+    }
+  });
+}, []);
+const cardStyle = {
   background: "#1b1b1b",
   padding: "30px",
   borderRadius: "12px",
@@ -57,23 +69,6 @@ if (!/^[6-9]\d{9}$/.test(formData.phone)) {
   );
   return;
 }
-    const prices = {
-  Haircut: 500,
-  "Hair Coloring": 2000,
-  Facial: 1500,
-  "Bridal Makeup": 10000,
-};
-const [prices, setPrices] = useState({});
-useEffect(() => {
-  const servicesRef = ref(db, "services");
-
-  onValue(servicesRef, (snapshot) => {
-    if (snapshot.exists()) {
-      setPrices(snapshot.val());
-    }
-  });
-}, []);
-
 await push(ref(db, "appointments"), {
   name: formData.name,
   phone: formData.phone,
@@ -82,6 +77,9 @@ await push(ref(db, "appointments"), {
   date: formData.date,
   createdAt: new Date().toISOString(),
 });
+   
+
+
 
     alert(
   "Appointment request received! Please wait for WhatsApp confirmation from the salon."
