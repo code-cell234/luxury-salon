@@ -5,7 +5,7 @@ import { ref, onValue, remove, update, set} from "firebase/database";
 import { FaWhatsapp } from "react-icons/fa";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
-import { set } from "firebase/database";
+
 function Admin() {
   
   const [appointments, setAppointments] = useState([]);
@@ -408,7 +408,7 @@ useEffect(() => {
       </div>
       <h2
   style={{
-    color: "#D4AF37",
+    color: "#D4AFGold",
     marginTop: "30px",
     marginBottom: "15px",
   }}
@@ -437,17 +437,43 @@ useEffect(() => {
       <span>{service}</span>
 
       <input
- type="number"
- value={service.price}
- onChange={(e) =>
-   setService({
-     ...service,
-     price: e.target.value
-   })
- }
-/>
+        type="number"
+        value={price}
+        onChange={(e) => {
+          setPrices({
+            ...prices,
+            [service]: Number(e.target.value),
+          });
+        }}
+        style={{
+          width: "120px",
+          padding: "10px",
+          borderRadius: "8px",
+          background: "#222",
+          color: "white",
+          border: "1px solid #444",
+        }}
+      />
     </div>
   ))}
+
+  <button
+    onClick={() => {
+      set(ref(db, "services"), prices);
+      alert("Prices Updated");
+    }}
+    style={{
+      marginTop: "15px",
+      padding: "12px 25px",
+      background: "#D4AF37",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+      fontWeight: "bold",
+    }}
+  >
+    Save Prices
+  </button>
 </div>
 
       {/* Search */}
