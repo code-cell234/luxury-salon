@@ -5,6 +5,7 @@ import { ref, onValue, remove, update, set} from "firebase/database";
 import { FaWhatsapp } from "react-icons/fa";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
+import "./App.css";
 
 function Admin() {
   
@@ -176,17 +177,19 @@ useEffect(() => {
 
   return (
   <div
-    style={{
-      background: "#0a0a0a",
-      minHeight: "100vh",
-      color: "white",
-      display: "flex",
-    }}
-  >
+className="admin-container"
+style={{
+  background:"#0a0a0a",
+  minHeight:"100vh",
+  color:"white",
+  display:"flex",
+}}
+>
     {/* Sidebar */}
     <div
-  style={{
-    width: "250px",
+className="sidebar"
+style={{
+ width:"250px",
     background: "#111",
     padding: "30px 20px",
     borderRight: "1px solid #222",
@@ -342,11 +345,12 @@ useEffect(() => {
 
     {/* Main Content */}
     <div
-      style={{
-        flex: 1,
-        padding: "30px",
-      }}
-    >
+className="main-content"
+style={{
+ flex:1,
+ padding:"30px",
+}}
+>
       <h1 style={{ color: "#D4AF37" }}>
         Salon Dashboard
       </h1>
@@ -364,10 +368,11 @@ useEffect(() => {
 </div>
 
       {/* Stats */}
-      <div
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(4,1fr)",
+     <div
+className="stats-grid"
+style={{
+display:"grid",
+gridTemplateColumns:"repeat(4,1fr)",
     gap: "20px",
     marginTop: "20px",
   }}
@@ -417,8 +422,9 @@ useEffect(() => {
 </h2>
 
 <div
-  style={{
-    background: "#111",
+className="pricing-box"
+style={{
+background:"#111",
     padding: "20px",
     borderRadius: "12px",
     marginBottom: "20px",
@@ -484,8 +490,9 @@ useEffect(() => {
 </div>
 
       {/* Search */}
-      <input
-        type="text"
+     <input
+className="search-box"
+type="text"
         placeholder="Search customer..."
         value={search}
         onChange={(e) =>
