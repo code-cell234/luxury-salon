@@ -437,23 +437,25 @@ useEffect(() => {
       <span>{service}</span>
 
       <input
-        type="number"
-        value={price}
-        onChange={(e) => {
-          setPrices({
-            ...prices,
-            [service]: Number(e.target.value),
-          });
-        }}
-        style={{
-          width: "120px",
-          padding: "10px",
-          borderRadius: "8px",
-          background: "#222",
-          color: "white",
-          border: "1px solid #444",
-        }}
-      />
+  type="number"
+  value={price}
+  onChange={(e) => {
+    setPrices({
+      ...prices,
+      [service]: e.target.value === "" 
+        ? "" 
+        : Number(e.target.value),
+    });
+  }}
+  style={{
+    width: "120px",
+    padding: "10px",
+    borderRadius: "8px",
+    background: "#222",
+    color: "white",
+    border: "1px solid #444",
+  }}
+/>
     </div>
   ))}
 
