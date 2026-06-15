@@ -437,14 +437,12 @@ useEffect(() => {
       <span>{service}</span>
 
       <input
-  type="number"
+  type="text"
   value={price}
   onChange={(e) => {
     setPrices({
       ...prices,
-      [service]: e.target.value === "" 
-        ? "" 
-        : Number(e.target.value),
+      [service]: e.target.value,
     });
   }}
   style={{
@@ -459,23 +457,30 @@ useEffect(() => {
     </div>
   ))}
 
-  <button
-    onClick={() => {
-      set(ref(db, "services"), prices);
-      alert("Prices Updated");
-    }}
-    style={{
-      marginTop: "15px",
-      padding: "12px 25px",
-      background: "#D4AF37",
-      border: "none",
-      borderRadius: "8px",
-      cursor: "pointer",
-      fontWeight: "bold",
-    }}
-  >
-    Save Prices
-  </button>
+ <button
+  onClick={() => {
+    const updatedPrices = {};
+
+    Object.entries(prices).forEach(([service, price]) => {
+      updatedPrices[service] = Number(price);
+    });
+
+    set(ref(db, "services"), updatedPrices);
+
+    alert("Prices Updated");
+  }}
+  style={{
+    marginTop: "15px",
+    padding: "12px 25px",
+    background: "#D4AF37",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  }}
+>
+  Save Prices
+</button>
 </div>
 
       {/* Search */}
