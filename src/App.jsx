@@ -5,7 +5,8 @@ import { ref, push, onValue  } from "firebase/database";
 
 
 
-function App() {const
+function App() {const [menuOpen, setMenuOpen] = useState(false);
+  const
    [formData, setFormData] = useState({
   name: "",
   phone: "",
@@ -110,121 +111,57 @@ return(
   }}
 >
       <nav
-  style={{
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "20px 40px",
-    borderBottom: "1px solid #333",
-    position: "sticky",
-    top: 0,
-    background: "#0a0a0a",
-    zIndex: 1000,
-  }}
+style={{
+  display:"flex",
+  justifyContent:"space-between",
+  alignItems:"center",
+  padding:"20px",
+  borderBottom:"1px solid #333",
+  position:"sticky",
+  top:0,
+  background:"#0a0a0a",
+  zIndex:1000,
+}}
 >
-  <div>
-    <h1
-      style={{
-        color: "#D4AF37",
-        fontSize: "2rem",
-        margin: 0,
-      }}
-    >
-      ✨ Luxury Salon
-    </h1>
-  </div>
 
-  <div
-    style={{
-      display: "flex",
-      gap: "25px",
-      alignItems: "center",
-    }}
-  >
-    <a
-  href="#services"
-  style={navLinkStyle}
-  onMouseEnter={(e) => {
-    e.target.style.background =
-      "rgba(212,175,55,0.15)";
-    e.target.style.color = "#D4AF37";
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.background = "transparent";
-    e.target.style.color = "white";
-  }}
+<h1
+style={{
+color:"#D4AF37",
+fontSize:"1.8rem",
+margin:0,
+}}
 >
-  ✂ Services
-</a>
+✨ Luxury Salon
+</h1>
 
-    <a
-      href="#gallery"
-      style={navLinkStyle}
-  onMouseEnter={(e) => {
-    e.target.style.background =
-      "rgba(212,175,55,0.15)";
-    e.target.style.color = "#D4AF37";
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.background = "transparent";
-    e.target.style.color = "white";
-  }}
-    >
-      🖼 Gallery
-    </a>
 
-    <a
-      href="#reviews"
-      style={navLinkStyle}
-  onMouseEnter={(e) => {
-    e.target.style.background =
-      "rgba(212,175,55,0.15)";
-    e.target.style.color = "#D4AF37";
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.background = "transparent";
-    e.target.style.color = "white";
-  }}
-    >
-      ⭐ Reviews
-    </a>
+<button
+className="customer-hamburger"
+onClick={()=>setMenuOpen(!menuOpen)}
+>
+☰
+</button>
 
-    <a
-      href="#contact"
-      style={navLinkStyle}
-  onMouseEnter={(e) => {
-    e.target.style.background =
-      "rgba(212,175,55,0.15)";
-    e.target.style.color = "#D4AF37";
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.background = "transparent";
-    e.target.style.color = "white";
-  }}
-    >
-      📞 Contact
-    </a>
 
-    <button
-      onClick={() =>
-        window.open(
-          "https://wa.me/919999999999",
-          "_blank"
-        )
-      }
-      style={{
-        background: "transparent",
-        color: "#D4AF37",
-        border: "1px solid #D4AF37",
-        padding: "12px 20px",
-        borderRadius: "12px",
-        cursor: "pointer",
-        fontWeight: "bold",
-        transition: "0.3s",
-      }}
-    >
-      <FaWhatsapp />Book Now
-    </button>
-  </div>
+<div className={`customer-menu ${menuOpen ? "show" : ""}`}>
+
+<a href="#services">✂ Services</a>
+<a href="#gallery">🖼 Gallery</a>
+<a href="#reviews">⭐ Reviews</a>
+<a href="#contact">📞 Contact</a>
+
+<button
+onClick={() =>
+window.open(
+"https://wa.me/919999999999",
+"_blank"
+)}
+>
+<FaWhatsapp/> Book Now
+</button>
+
+</div>
+
 </nav>
 
       <section
@@ -454,7 +391,7 @@ return(
 
   <div
     style={{
-      maxWidth: "500px",
+      maxWidth: "100%",
       margin: "auto",
       display: "flex",
       flexDirection: "column",
