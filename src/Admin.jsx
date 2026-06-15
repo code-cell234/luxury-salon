@@ -437,23 +437,15 @@ useEffect(() => {
       <span>{service}</span>
 
       <input
-        type="number"
-        value={price}
-        onChange={(e) =>
-  set(
-    ref(db, `services/${service}`),
-    Number(e.target.value)
-  )
-}
-        style={{
-          width: "120px",
-          padding: "8px",
-          background: "#1b1b1b",
-          color: "white",
-          border: "1px solid #333",
-          borderRadius: "8px",
-        }}
-      />
+ type="number"
+ value={service.price}
+ onChange={(e) =>
+   setService({
+     ...service,
+     price: e.target.value
+   })
+ }
+/>
     </div>
   ))}
 </div>
