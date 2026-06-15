@@ -7,8 +7,9 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import "./App.css";
 
+
 function Admin() {
-  
+  const [menuOpen, setMenuOpen] = useState(false);
   const [appointments, setAppointments] = useState([]);
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -185,9 +186,15 @@ style={{
   display:"flex",
 }}
 >
+  <button
+  className="hamburger"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  ☰
+</button>
     {/* Sidebar */}
     <div
-className="sidebar"
+className={`sidebar ${menuOpen ? "open" : ""}`}
 style={{
  width:"250px",
     background: "#111",
