@@ -144,3 +144,27 @@ tbody td:nth-child(7)::before{
 
 
 }
+.menu-overlay{
+  display:none;
+}
+
+
+@media(max-width:768px){
+
+.menu-overlay{
+  display:block;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1400;
+}
+
+.sidebar{
+  z-index:1500 !important;
+}
+
+.hamburger{
+  z-index:2000 !important;
+}
+
+}
