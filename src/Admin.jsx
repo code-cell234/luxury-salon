@@ -76,9 +76,10 @@ const monthlyIncome = appointments
     0
   );
   const cardStyle = {
-  background: "#1b1b1b",
-  padding: "20px",
-  borderRadius: "12px",
+  background:"#1b1b1b",
+  padding:"15px",
+  borderRadius:"12px",
+  textAlign:"center",
 };
 const [email, setEmail] = useState("");
 useEffect(() => {
@@ -404,18 +405,20 @@ gridTemplateColumns:"repeat(4,1fr)",
 
   {/* Income */}
   <div
-    style={{
-      background: "#151515",
-      border: "1px solid #D4AF37",
-      borderRadius: "12px",
-      padding: "20px",
-    }}
-  >
-    <h3>Monthly Income</h3>
-    <h2 style={{ color: "#D4AF37" }}>
-      ₹{monthlyIncome}
-    </h2>
-  </div>
+  style={{
+    background:"#151515",
+    border:"1px solid #D4AF37",
+    borderRadius:"12px",
+    padding:"15px",
+    textAlign:"center",
+  }}
+>
+  <h3>Monthly Income</h3>
+
+  <h2 style={{ color:"#D4AF37" }}>
+    ₹{monthlyIncome}
+  </h2>
+</div>
 
       </div>
       <h2
