@@ -193,6 +193,12 @@ style={{
 >
   ☰
 </button>
+{menuOpen && (
+  <div
+    className="menu-overlay"
+    onClick={() => setMenuOpen(false)}
+  />
+)}
     {/* Sidebar */}
     <div
 className={`sidebar ${menuOpen ? "open" : ""}`}

@@ -100,9 +100,11 @@ tbody tr{
 
 tbody td{
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-start;
+  gap:15px;
   padding:10px !important;
   border:none !important;
+  align-items:center;
 }
 
 
