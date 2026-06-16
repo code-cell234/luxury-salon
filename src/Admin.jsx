@@ -5,7 +5,7 @@ import { ref, onValue, remove, update, set} from "firebase/database";
 import { FaWhatsapp } from "react-icons/fa";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
-import "./App.css";
+import "./Admin.css";
 
 
 function Admin() {
@@ -385,11 +385,9 @@ style={{
      <div
 className="stats-grid"
 style={{
-display:"grid",
-gridTemplateColumns:"repeat(4,1fr)",
-    gap: "20px",
-    marginTop: "20px",
-  }}
+ display:"grid",
+ gap:"20px"
+}}
 >
   {/* Total */}
   <div style={cardStyle}>
