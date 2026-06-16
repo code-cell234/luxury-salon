@@ -86,3 +86,14 @@
 }
 
 }
+/* date picker mobile fix */
+.customer-page input[type="date"]{
+  color:white !important;
+  background:#1b1b1b !important;
+}
+
+
+.customer-page input[type="date"]::-webkit-calendar-picker-indicator{
+  filter:invert(1);
+  cursor:pointer;
+}
