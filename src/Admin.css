@@ -1,4 +1,4 @@
-.hamburger{
+.admin-hamburger{
   display:none;
 }
 
@@ -10,7 +10,7 @@
 }
 
 
-.hamburger{
+.admin-hamburger{
  display:block;
  position:fixed;
  top:15px;
@@ -159,7 +159,7 @@ tbody td:nth-child(7)::before{
 }
 
 
-.hamburger{
+.admin-hamburger{
  z-index:2000 !important;
 }
 

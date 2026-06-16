@@ -186,9 +186,8 @@ style={{
   color:"white",
   display:"flex",
 }}
->
-  <button
-  className="hamburger"
+><button
+  className="admin-hamburger"
   onClick={() => setMenuOpen(!menuOpen)}
 >
   ☰
