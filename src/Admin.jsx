@@ -574,24 +574,25 @@ type="text"
       gap: "12px",
     }}
   >
-    <div
-      style={{
-        width: "40px",
-        height: "40px",
-        borderRadius: "50%",
-        background: item.completed
+   <div
+className="customer-avatar"
+style={{
+ width: "40px",
+ height: "40px",
+ borderRadius: "50%",
+ background: item.completed
   ? "#25D366"
   : "#D4AF37",
-        color: "black",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontWeight: "bold",
-        fontSize: "16px",
-      }}
-    >
-      {item.name?.charAt(0).toUpperCase()}
-    </div>
+ color:"black",
+ display:"flex",
+ justifyContent:"center",
+ alignItems:"center",
+ fontWeight:"bold",
+ fontSize:"16px",
+}}
+>
+ {item.name?.charAt(0).toUpperCase()}
+</div>
 
     <span>{item.name}</span>
   </div>
