@@ -1,0 +1,86 @@
+.customer-hamburger{
+ display:none;
+ background:#D4AF37;
+ border:none;
+ border-radius:10px;
+ padding:10px 14px;
+ font-size:22px;
+}
+
+
+.customer-menu{
+ display:flex;
+ gap:25px;
+ align-items:center;
+}
+
+
+.customer-menu a{
+ color:white;
+ text-decoration:none;
+}
+
+
+.customer-menu button{
+ background:transparent;
+ color:#D4AF37;
+ border:1px solid #D4AF37;
+ padding:12px 18px;
+ border-radius:12px;
+}
+
+
+
+@media(max-width:768px){
+
+
+.customer-hamburger{
+ display:block;
+}
+
+
+.customer-menu{
+ position:absolute;
+ top:75px;
+ right:15px;
+ background:#111;
+ border:1px solid #333;
+ border-radius:15px;
+ padding:20px;
+ flex-direction:column;
+ width:200px;
+ display:none;
+}
+
+
+.customer-menu.show{
+ display:flex;
+}
+
+
+.customer-menu a{
+ padding:10px;
+ width:100%;
+}
+
+
+h1{
+ font-size:2.5rem !important;
+}
+
+
+section{
+ padding:50px 15px !important;
+}
+
+
+img{
+ height:220px !important;
+}
+
+
+div[style*="grid-template-columns"]{
+ grid-template-columns:1fr !important;
+}
+
+}

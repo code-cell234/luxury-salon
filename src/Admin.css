@@ -1,0 +1,166 @@
+.hamburger{
+  display:none;
+}
+
+
+@media(max-width:768px){
+
+.admin-container{
+ flex-direction:column !important;
+}
+
+
+.hamburger{
+ display:block;
+ position:fixed;
+ top:15px;
+ left:15px;
+ z-index:2000;
+ background:#D4AF37;
+ color:black;
+ border:none;
+ font-size:25px;
+ width:45px;
+ height:45px;
+ border-radius:10px;
+}
+
+
+.sidebar{
+ position:fixed !important;
+ top:0;
+ left:-280px;
+ width:250px !important;
+ height:100vh !important;
+ z-index:1500;
+ transition:0.3s;
+ overflow:auto;
+}
+
+
+.sidebar.open{
+ left:0;
+}
+
+
+.main-content{
+ padding:80px 15px 15px !important;
+}
+
+
+.stats-grid{
+ grid-template-columns:repeat(2,1fr) !important;
+ gap:12px !important;
+}
+
+
+.search-box{
+ width:100% !important;
+}
+
+
+table{
+ min-width:700px;
+}
+
+}
+
+
+@media(max-width:768px){
+
+table,
+thead,
+tbody,
+th,
+td,
+tr{
+ display:block;
+}
+
+
+thead{
+ display:none;
+}
+
+
+tbody tr{
+ background:#151515;
+ margin-bottom:15px;
+ border-radius:15px;
+ padding:15px;
+}
+
+
+tbody td{
+ display:flex;
+ justify-content:flex-start;
+ gap:15px;
+ padding:10px !important;
+ border:none !important;
+ align-items:center;
+}
+
+
+tbody td::before{
+ font-weight:bold;
+ color:#D4AF37;
+}
+
+
+tbody td:nth-child(1)::before{
+ content:"Name";
+}
+
+tbody td:nth-child(2)::before{
+ content:"Phone";
+}
+
+tbody td:nth-child(3)::before{
+ content:"Service";
+}
+
+tbody td:nth-child(4)::before{
+ content:"Price";
+}
+
+tbody td:nth-child(5)::before{
+ content:"Date";
+}
+
+tbody td:nth-child(6)::before{
+ content:"Status";
+}
+
+tbody td:nth-child(7)::before{
+ content:"Actions";
+}
+
+}
+
+
+.menu-overlay{
+ display:none;
+}
+
+
+@media(max-width:768px){
+
+.menu-overlay{
+ display:block;
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,0.5);
+ z-index:1400;
+}
+
+
+.sidebar{
+ z-index:1500 !important;
+}
+
+
+.hamburger{
+ z-index:2000 !important;
+}
+
+}
