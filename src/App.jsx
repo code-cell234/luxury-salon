@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { db } from "./firebase";
 import { ref, push, onValue  } from "firebase/database";
+import "./Customer.css";
 
 
 
@@ -100,6 +101,10 @@ await push(ref(db, "appointments"), {
 
 return(
   
+    
+  
+<div className="customer-page">
+
     <div
   style={{
     background: "#0a0a0a",
@@ -111,6 +116,7 @@ return(
   }}
 >
       <nav
+className="customer-navbar"
 style={{
   display:"flex",
   justifyContent:"space-between",
@@ -482,7 +488,11 @@ window.open(
     © 2026 Luxury Salon. All Rights Reserved.
   </p>
 </footer>
-    </div>
+
+    </div>   
+
+</div>       
+
   );
 }
 
